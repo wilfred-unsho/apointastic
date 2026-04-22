@@ -54,12 +54,6 @@ class AppointmentBookingService
                 'status' => Appointment::STATUS_PENDING,
             ]);
 
-            SendAppointmentConfirmationJob::dispatch($appointment->id);
-            SendAppointmentReminderJob::dispatch($appointment->id, 'reminder_24h')
-                ->delay($startsAtUtc->subDay());
-            SendAppointmentReminderJob::dispatch($appointment->id, 'reminder_1h')
-                ->delay($startsAtUtc->subHour());
-
             return $appointment;
         });
     }
