@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Services\Bookings;
 
+use App\Jobs\Appointments\SendAppointmentConfirmationJob;
+use App\Jobs\Appointments\SendAppointmentReminderJob;
 use App\Models\Appointment;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Arr;
